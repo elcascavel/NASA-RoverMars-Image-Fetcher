@@ -1,0 +1,21 @@
+<h1>NASA Pictures</h1>
+<mat-paginator [length]="length"
+              [pageSize]="25"
+              (changePage)="onChangePage($event.pageIndex)">
+</mat-paginator>
+  
+<div class="grid-container">   
+    <ul *ngIf="responsePhotos">
+        <li *ngFor="let photo of responsePhotos.photos">
+            <img *ngIf="!photo.ShowDetails; else photoDetails" class="nasaImg" [src]="photo.img_src"
+                (mouseover)="photo.ShowDetails=true" />
+            <ng-template #photoDetails>
+                <div (mouseout)="photo.ShowDetails=false">
+                    <p>{{photo.camera.name}}</p>
+                    <p>{{photo.camera.full_name}}</p>
+                    <p>{{photo.rover.landing_date}}</p>
+                </div>
+            </ng-template>
+        </li>
+    </ul>
+</div>
