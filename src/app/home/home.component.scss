@@ -1,13 +1,13 @@
 ul {
     list-style-type: none;
     margin: 0;
-    padding-top: 50px;;
+    padding-top: 50px;
     display: flex;
     flex-wrap: wrap;
 
     li {
         background: rgb(238, 238, 238);
-        margin-right: 10px;
+        margin: 4px;
         width: 20%;
         height: 100px;
         display: flex;
@@ -27,8 +27,14 @@ ul {
     grid-template-areas: ". . . . ." ". . . . ." ". . . . .";
     min-width: 100%;
     height: auto;
+}
+
+  .paginator-header
+  {
+    margin-top: 20px;
   }
 
-  .mat-form-field {
-    margin-right: 12px;
+  .picture-box
+  {
+      padding: 0px;
   }

@@ -1,11 +1,12 @@
-<h1>NASA Pictures</h1>
-<mat-paginator [length]="length"
-              [pageSize]="25"
-              (changePage)="onChangePage($event.pageIndex)">
+<div class="paginator-header">
+    <mat-paginator [length]="length"
+    [pageSize]="25"
+    (page)="onChangePage($event)">
 </mat-paginator>
-  
+</div>
+
 <div class="grid-container">   
-    <ul *ngIf="responsePhotos">
+    <ul class= "picture-box" *ngIf="responsePhotos">
         <li *ngFor="let photo of responsePhotos.photos">
             <img *ngIf="!photo.ShowDetails; else photoDetails" class="nasaImg" [src]="photo.img_src"
                 (mouseover)="photo.ShowDetails=true" />

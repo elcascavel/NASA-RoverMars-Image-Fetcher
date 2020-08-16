@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NasaService } from "../nasa.service";
 import { PageEvent } from '@angular/material/paginator';
-import { MatInput } from '@angular/material/input';
 
 @Component({
   selector: 'app-home',
@@ -13,8 +12,8 @@ export class HomeComponent implements OnInit {
   public responsePhotos: Object;
   public length: number;
 
-  onChangePage(pageIndex: number) {
-    this.getPhotos(pageIndex);
+  onChangePage(page: PageEvent) {
+    this.getPhotos(page.pageIndex + 1);
   }
 
   constructor(private nasaApi: NasaService) { }
@@ -24,7 +23,7 @@ export class HomeComponent implements OnInit {
       .subscribe((response) => {
         this.length = response.photos.length;
       });
-    this.getPhotos(0);
+    this.getPhotos(1);
   }
 
   getPhotos(page: number) {
